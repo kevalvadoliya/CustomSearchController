@@ -1,13 +1,13 @@
 //
-//  RoundedButton.swift
-//  SearchDemo
+//  cButton.swift
+//  CustomSearchController
 //
 //  Created by Keval Vadoliya on 11/10/22.
 //
 
 import UIKit
 
-class RoundedButton: UIButton {
+class cButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

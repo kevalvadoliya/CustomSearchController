@@ -1,30 +1,22 @@
 //
 //  CustomSearchController.swift
-//  Helios
+//  CustomSearchController
 //
-//  Created by kiprosh-xi on 03/10/19.
-//  Copyright © 2019 Kiprosh. All rights reserved.
+//  Created by Keval Vadoliya on 14/10/22.
 //
 
 import UIKit
 
 class CustomSearchController: UIView {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var addButton: RoundedButton!
+    @IBOutlet weak var cSearchBar: cSearchBar!
+    @IBOutlet weak var cButton: cButton!
     @IBOutlet weak var delegate: SearchBarProtocol?
     private var contentView: UIView!
-    
-    private var isSearched = false
-    private var isSearchBarActive = false
     var addAction: ((Any) -> Void)?
     
     @IBOutlet private var searchBarWidthConstraint: NSLayoutConstraint!
     @IBOutlet private var addButtonWidthConstraint: NSLayoutConstraint!
-    private var searchBarTextFieldLeftConstraint: NSLayoutConstraint?
-    private var searchBarTextFieldRightConstraint: NSLayoutConstraint?
-    private var searchBarTextFieldTopConstraint: NSLayoutConstraint?
-    private var searchBarTextFieldBottomConstraint: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,16 +35,8 @@ class CustomSearchController: UIView {
         addSubview(contentView)
         setUI()
         updateUIConstraints()
-        updateSearchBarTextFieldConstraints()
         updateSubviewsProperties()
         setClearButtonAction()
-    }
-    
-    private func setClearButtonAction() {
-        guard let clearButton = searchTextField().value(forKey: "_clearButton") as? UIButton else {
-            return
-        }
-        clearButton.addTarget(self, action: #selector(clearButtonAction(_:)), for: .touchUpInside)
     }
     
     private func updateUIConstraints() {
@@ -60,11 +44,10 @@ class CustomSearchController: UIView {
         updateSearchBarConstraint()
         updateSearchBarIconPosition()
         updatePlaceHolder()
-        updateCancelButton()
     }
     
     private func updateAddButtonConstraint() {
-        if !shouldShowButton || isSearchBarActive {
+        if !shouldShowButton || cSearchBar.isSearchBarActive {
             addButtonWidthConstraint.constant = 0
             addButtonWidthConstraint.isActive = true
         } else {
@@ -73,8 +56,8 @@ class CustomSearchController: UIView {
     }
     
     private func updateSearchBarConstraint() {
-        if !isSearchBarActive && shouldShowButton {
-            searchBarWidthConstraint.constant = searchBar.isHidden ? 0 : 60
+        if !cSearchBar.isSearchBarActive && shouldShowButton {
+            searchBarWidthConstraint.constant = cSearchBar.isHidden ? 0 : 60
             searchBarWidthConstraint.isActive = true
         } else {
             searchBarWidthConstraint.isActive = false
@@ -82,49 +65,25 @@ class CustomSearchController: UIView {
     }
     
     private func updateSearchBarIconPosition() {
-        searchBar.setPositionAdjustment(UIOffset(horizontal: !isSearchBarActive && shouldShowButton ? 6 : 0, vertical: 0), for: .search)
+        cSearchBar.setPositionAdjustment(
+            UIOffset(
+                horizontal: !cSearchBar.isSearchBarActive && shouldShowButton ? 6 : 0,
+                vertical: 0
+            ),
+            for: .search
+        )
     }
     
     private func setUI() {
         updatePlaceHolder()
-        updateCancelButton()
-        setAddButtonFontStyle()
     }
     
     private func updatePlaceHolder() {
-        searchBar.placeholder = isSearchBarActive || !shouldShowButton ? "Search" : String()
-    }
-    
-    private func updateCancelButton() {
-        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
-            cancelButton.setTitle("Cancel", for: .normal)
-        }
-    }
-    
-    dynamic open var titleTextFont: UIFont = UIFont.preferredFont(forTextStyle: .subheadline) {
-        didSet {
-            setAddButtonFontStyle()
-        }
-    }
-    
-    private func setAddButtonFontStyle() {
-        addButton.titleLabel?.font = titleTextFont
-    }
-    
-    private func updateSearchBarTextFieldConstraints() {
-        searchTextField().translatesAutoresizingMaskIntoConstraints = false
-        searchBarTextFieldLeftConstraint = searchTextField().leftAnchor.constraint(equalTo: searchBar.leftAnchor, constant: 8)
-        searchBarTextFieldLeftConstraint?.isActive = true
-        searchBarTextFieldRightConstraint = searchTextField().rightAnchor.constraint(equalTo: searchBar.rightAnchor, constant: -8)
-        searchBarTextFieldRightConstraint?.isActive = true
-        searchBarTextFieldTopConstraint = searchTextField().topAnchor.constraint(equalTo: searchBar.topAnchor, constant: 6)
-        searchBarTextFieldTopConstraint?.isActive = true
-        searchBarTextFieldBottomConstraint = searchTextField().bottomAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: -6)
-        searchBarTextFieldBottomConstraint?.isActive = true
+        cSearchBar.placeholder = cSearchBar.isSearchBarActive || !shouldShowButton ? "Search" : String()
     }
     
     private func enableCancelButton() {
-        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+        if let cancelButton = cSearchBar.value(forKey: "cancelButton") as? UIButton {
             cancelButton.isEnabled = true
             cancelButton.setTitle("Cancel", for: .normal)
         }
@@ -139,7 +98,7 @@ class CustomSearchController: UIView {
     @IBInspectable dynamic open var isTextDidChangeActive: Bool = false
     
     private func updateAddButtonAvailability() {
-        addButton.isHidden = !shouldShowButton
+        cButton.isHidden = !shouldShowButton
         updateUIConstraints()
     }
     
@@ -150,7 +109,7 @@ class CustomSearchController: UIView {
     }
     
     private func updateSearchBarAvailability() {
-        searchBar.isHidden = hideSearchBar ? !isSearched : hideSearchBar
+        cSearchBar.isHidden = hideSearchBar ? !cSearchBar.isSearched : hideSearchBar
         updateUIConstraints()
     }
     
@@ -161,7 +120,7 @@ class CustomSearchController: UIView {
     }
     
     private func updateTitleLabel() {
-        addButton.setTitle(titleLabel, for: .normal)
+        cButton.setTitle(titleLabel, for: .normal)
     }
     
     private func updateSubviewsProperties() {
@@ -177,32 +136,27 @@ class CustomSearchController: UIView {
     }
     
     func isContentHidden() -> Bool {
-        return searchBar.isHidden && addButton.isHidden
-    }
-    
-    func isSearchBarHidden() -> Bool {
-        return searchBar.isHidden
+        return cSearchBar.isHidden && cButton.isHidden
     }
     
     func isAddButtonHidden() -> Bool {
-        return addButton.isHidden
-    }
-    
-    func getSearchedText() -> String {
-        return searchBar.text ?? String()
-    }
-    
-    private func searchTextField() -> UITextField {
-        return searchBar.searchTextField
+        return cButton.isHidden
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
         addAction?(sender)
     }
     
+    private func setClearButtonAction() {
+        guard let clearButton = cSearchBar.searchTextField.value(forKey: "_clearButton") as? UIButton else {
+            return
+        }
+        clearButton.addTarget(self, action: #selector(clearButtonAction(_:)), for: .touchUpInside)
+    }
+    
     @IBAction func clearButtonAction(_ sender: UIButton) {
-        isSearched = false
-        delegate?.cancelButtonClicked(searchBar)
+        cSearchBar.isSearched = false
+        delegate?.cancelButtonClicked(cSearchBar)
     }
     
 }
@@ -210,12 +164,12 @@ class CustomSearchController: UIView {
 extension CustomSearchController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        isSearchBarActive = true
+        cSearchBar.isSearchBarActive = true
         return true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        isSearched = true
+        cSearchBar.isSearched = true
         updateUIConstraints()
         searchBar.endEditing(true)
         delegate?.searchButtonClicked(searchBar)
@@ -224,33 +178,33 @@ extension CustomSearchController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if isTextDidChangeActive {
-            isSearched = true
+            cSearchBar.isSearched = true
             delegate?.textDidChange(searchBar, searchText: searchText)
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = String()
-        searchBar.endEditing(true)
-        searchBar.showsCancelButton = false
-        isSearchBarActive = false
+        cSearchBar.text = String()
+        cSearchBar.endEditing(true)
+        cSearchBar.showsCancelButton = false
+        cSearchBar.isSearchBarActive = false
         updateUIConstraints()
-        searchBarTextFieldRightConstraint?.isActive = false
-        searchBarTextFieldRightConstraint = searchTextField().rightAnchor.constraint(equalTo: searchBar.rightAnchor, constant: -8)
-        searchBarTextFieldRightConstraint?.isActive = true
+        cSearchBar.searchBarRightConstraint?.isActive = false
+        cSearchBar.searchBarRightConstraint = cSearchBar.searchTextField.rightAnchor.constraint(equalTo: cSearchBar.rightAnchor, constant: -8)
+        cSearchBar.searchBarRightConstraint?.isActive = true
         animate()
-        if !isSearched {
+        if !cSearchBar.isSearched {
             return
         }
-        isSearched = false
-        delegate?.cancelButtonClicked(searchBar)
+        cSearchBar.isSearched = false
+        delegate?.cancelButtonClicked(cSearchBar)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
-        searchBarTextFieldRightConstraint?.isActive = false
-        searchBarTextFieldRightConstraint = searchTextField().rightAnchor.constraint(equalTo: searchBar.rightAnchor, constant: -65)
-        searchBarTextFieldRightConstraint?.isActive = true
+        cSearchBar.searchBarRightConstraint?.isActive = false
+        cSearchBar.searchBarRightConstraint = searchBar.searchTextField.rightAnchor.constraint(equalTo: searchBar.rightAnchor, constant: -65)
+        cSearchBar.searchBarRightConstraint?.isActive = true
         updateUIConstraints()
         animate()
     }

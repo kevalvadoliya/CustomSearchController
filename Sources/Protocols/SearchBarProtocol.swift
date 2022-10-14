@@ -1,9 +1,8 @@
 //
 //  SearchBarProtocol.swift
-//  Helios
+//  CustomSearchController
 //
-//  Created by kiprosh-xi on 25/09/19.
-//  Copyright © 2019 Kiprosh. All rights reserved.
+//  Created by Keval Vadoliya on 14/10/22.
 //
 
 import UIKit

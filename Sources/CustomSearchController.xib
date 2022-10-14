@@ -4,16 +4,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSearchController" customModule="SearchDemo" customModuleProvider="target">
             <connections>
-                <outlet property="addButton" destination="3Bj-LH-3ie" id="Vui-CT-jMA"/>
                 <outlet property="addButtonWidthConstraint" destination="KpZ-I9-z7C" id="o27-Ao-ciI"/>
-                <outlet property="searchBar" destination="ePw-VJ-Mkg" id="Wdo-qB-JGt"/>
+                <outlet property="cButton" destination="3Bj-LH-3ie" id="Vui-CT-jMA"/>
+                <outlet property="cSearchBar" destination="ePw-VJ-Mkg" id="Wdo-qB-JGt"/>
                 <outlet property="searchBarWidthConstraint" destination="vdr-e6-0h9" id="f6Q-Tp-7CV"/>
             </connections>
         </placeholder>
@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePw-VJ-Mkg">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePw-VJ-Mkg" customClass="cSearchBar" customModule="CustomSearchController">
                     <rect key="frame" x="0.0" y="0.0" width="345" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="WVv-Xa-3Zd"/>
@@ -33,7 +33,7 @@
                         <outlet property="delegate" destination="-1" id="bfz-vr-AB2"/>
                     </connections>
                 </searchBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="RoundedButton" customModule="SearchDemo" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="cButton" customModule="SearchDemo" customModuleProvider="target">
                     <rect key="frame" x="345" y="6" width="30" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="JeH-39-PgY"/>
@@ -42,7 +42,7 @@
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="enabledBackgroundColor">
-                            <color key="value" name="AccentColor"/>
+                            <color key="value" systemColor="systemBlueColor"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
                             <color key="value" systemColor="systemGray4Color"/>
@@ -71,9 +71,9 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
