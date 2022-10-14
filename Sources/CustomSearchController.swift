@@ -108,7 +108,7 @@ class CustomSearchController: UIView {
     }
     
     private func setAddButtonFontStyle() {
-        addButton.titleFont = titleTextFont
+        addButton.titleLabel?.font = titleTextFont
     }
     
     private func updateSearchBarTextFieldConstraints() {
