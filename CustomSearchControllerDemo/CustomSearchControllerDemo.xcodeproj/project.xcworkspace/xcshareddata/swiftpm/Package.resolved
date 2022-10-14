@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "customsearchcontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kevalvadoliya/CustomSearchController.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "293ba95f831d4d08f04a3fed63a07eb44ac821d8"
+      }
+    }
+  ],
+  "version" : 2
+}

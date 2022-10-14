@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F596C5628F84795003EFADD /* CustomSearchController in Frameworks */ = {isa = PBXBuildFile; productRef = 1F596C5528F84795003EFADD /* CustomSearchController */; };
 		1F70F92728F81BAB0075F457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70F92628F81BAB0075F457 /* AppDelegate.swift */; };
 		1F70F92928F81BAB0075F457 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70F92828F81BAB0075F457 /* SceneDelegate.swift */; };
 		1F70F92B28F81BAB0075F457 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70F92A28F81BAB0075F457 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F596C5628F84795003EFADD /* CustomSearchController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = CustomSearchControllerDemo;
+			packageProductDependencies = (
+				1F596C5528F84795003EFADD /* CustomSearchController */,
+			);
 			productName = CustomSearchControllerDemo;
 			productReference = 1F70F92328F81BAB0075F457 /* CustomSearchControllerDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 1F70F91A28F81BAB0075F457;
+			packageReferences = (
+				1F596C5428F84795003EFADD /* XCRemoteSwiftPackageReference "CustomSearchController" */,
+			);
 			productRefGroup = 1F70F92428F81BAB0075F457 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -602,6 +610,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F596C5428F84795003EFADD /* XCRemoteSwiftPackageReference "CustomSearchController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kevalvadoliya/CustomSearchController.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F596C5528F84795003EFADD /* CustomSearchController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F596C5428F84795003EFADD /* XCRemoteSwiftPackageReference "CustomSearchController" */;
+			productName = CustomSearchController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F70F91B28F81BAB0075F457 /* Project object */;
 }
