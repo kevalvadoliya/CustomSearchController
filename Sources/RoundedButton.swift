@@ -25,19 +25,19 @@ class RoundedButton: UIButton {
         }
     }
     
-    @IBInspectable var titleColor: UIColor = .blue {
+    @IBInspectable var titleColor: UIColor = .white {
         didSet {
             setTitleColor(titleColor, for: .normal)
         }
     }
     
-    @IBInspectable var enabledBackgroundColor: UIColor = .white {
+    @IBInspectable var enabledBackgroundColor: UIColor = .blue {
         didSet {
             backgroundColor = enabledBackgroundColor
         }
     }
     
-    @IBInspectable var disabledBackgroundColor: UIColor = .white {
+    @IBInspectable var disabledBackgroundColor: UIColor = .lightGray {
         didSet {
             backgroundColor = disabledBackgroundColor
         }
