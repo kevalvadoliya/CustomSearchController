@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class CSearchBar: UISearchBar {
+@IBDesignable public class CSearchBar: UISearchBar {
     
     internal var isSearched = false
     internal var isSearchBarActive = false
@@ -24,6 +24,12 @@ public class CSearchBar: UISearchBar {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        updateSearchBarTextFieldConstraints()
+        updateCancelButton()
+    }
+    
+    public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
         updateSearchBarTextFieldConstraints()
         updateCancelButton()
     }

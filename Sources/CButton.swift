@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class CButton: UIButton {
+@IBDesignable public class CButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,6 +17,29 @@ public class CButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setButtonUI()
+    }
+    
+    public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setButtonUI()
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        setButtonUI()
+    }
+    
+    private func setButtonUI() {
+        titleLabel?.font = titleFont
+        titleLabel?.textAlignment = titleAlignment
+        titleLabel?.adjustsFontForContentSizeCategory = true
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+        setTitleColor(titleColor, for: .normal)
+        backgroundColor = isEnabled ? enabledBackgroundColor : disabledBackgroundColor
+        setDynamicFontSize()
     }
     
     override open var isEnabled: Bool {
@@ -71,29 +94,6 @@ public class CButton: UIButton {
         didSet {
             titleLabel?.textAlignment = titleAlignment
         }
-    }
-    
-    public override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setButtonUI()
-    }
-    
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        setButtonUI()
-    }
-    
-    private func setButtonUI() {
-        titleLabel?.font = titleFont
-        titleLabel?.textAlignment = titleAlignment
-        titleLabel?.adjustsFontForContentSizeCategory = true
-        layer.borderWidth = borderWidth
-        layer.borderColor = borderColor.cgColor
-        layer.cornerRadius = cornerRadius
-        layer.masksToBounds = true
-        setTitleColor(titleColor, for: .normal)
-        backgroundColor = isEnabled ? enabledBackgroundColor : disabledBackgroundColor
-        setDynamicFontSize()
     }
     
 }

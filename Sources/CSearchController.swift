@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class CSearchController: UIView {
+@IBDesignable public class CSearchController: UIView {
 
     @IBOutlet weak var cSearchBar: CSearchBar!
     @IBOutlet weak var cButton: CButton!
@@ -25,6 +25,11 @@ public class CSearchController: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        xibSetup()
+    }
+    
+    public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
         xibSetup()
     }
     
