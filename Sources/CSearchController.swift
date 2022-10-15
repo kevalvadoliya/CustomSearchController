@@ -163,12 +163,12 @@ public class CSearchController: UIView {
 
 extension CSearchController: UISearchBarDelegate {
     
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+    public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         cSearchBar.isSearchBarActive = true
         return true
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         cSearchBar.isSearched = true
         updateUIConstraints()
         searchBar.endEditing(true)
@@ -176,14 +176,14 @@ extension CSearchController: UISearchBarDelegate {
         enableCancelButton()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if isTextDidChangeActive {
             cSearchBar.isSearched = true
             delegate?.textDidChange(searchBar, searchText: searchText)
         }
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         cSearchBar.text = String()
         cSearchBar.endEditing(true)
         cSearchBar.showsCancelButton = false
@@ -200,7 +200,7 @@ extension CSearchController: UISearchBarDelegate {
         delegate?.cancelButtonClicked(cSearchBar)
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
         cSearchBar.searchBarRightConstraint?.isActive = false
         cSearchBar.searchBarRightConstraint = searchBar.searchTextField.rightAnchor.constraint(equalTo: searchBar.rightAnchor, constant: -65)
