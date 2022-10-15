@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable public class CSearchController: UIView {
+public class CSearchController: UIView {
 
     @IBOutlet weak var cSearchBar: CSearchBar!
     @IBOutlet weak var cButton: CButton!

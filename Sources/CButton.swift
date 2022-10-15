@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable public class CButton: UIButton {
+public class CButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
