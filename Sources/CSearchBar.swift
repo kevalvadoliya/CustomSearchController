@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CSearchBar: UISearchBar {
+public class CSearchBar: UISearchBar {
     
     internal var isSearched = false
     internal var isSearchBarActive = false
