@@ -1,5 +1,5 @@
 //
-//  CustomSearchController.swift
+//  CSearchController.swift
 //  CustomSearchController
 //
 //  Created by Keval Vadoliya on 14/10/22.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class CustomSearchController: UIView {
+class CSearchController: UIView {
 
-    @IBOutlet weak var cSearchBar: cSearchBar!
-    @IBOutlet weak var cButton: cButton!
+    @IBOutlet weak var cSearchBar: CSearchBar!
+    @IBOutlet weak var cButton: CButton!
     @IBOutlet weak var delegate: SearchBarProtocol?
     private var contentView: UIView!
     var addAction: ((Any) -> Void)?
@@ -161,7 +161,7 @@ class CustomSearchController: UIView {
     
 }
 
-extension CustomSearchController: UISearchBarDelegate {
+extension CSearchController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         cSearchBar.isSearchBarActive = true

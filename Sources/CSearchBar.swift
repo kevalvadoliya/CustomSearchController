@@ -1,5 +1,5 @@
 //
-//  cSearchBar.swift
+//  CSearchBar.swift
 //  CustomSearchController
 //
 //  Created by Keval Vadoliya on 14/10/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class cSearchBar: UISearchBar {
+class CSearchBar: UISearchBar {
     
     internal var isSearched = false
     internal var isSearchBarActive = false

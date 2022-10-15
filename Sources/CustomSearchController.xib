@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSearchController" customModule="SearchDemo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CSearchController" customModule="SearchDemo" customModuleProvider="target">
             <connections>
                 <outlet property="addButtonWidthConstraint" destination="KpZ-I9-z7C" id="o27-Ao-ciI"/>
                 <outlet property="cButton" destination="3Bj-LH-3ie" id="Vui-CT-jMA"/>
@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePw-VJ-Mkg" customClass="cSearchBar" customModule="CustomSearchController">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePw-VJ-Mkg" customClass="CSearchBar" customModule="CustomSearchController">
                     <rect key="frame" x="0.0" y="0.0" width="345" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="WVv-Xa-3Zd"/>
@@ -33,7 +33,7 @@
                         <outlet property="delegate" destination="-1" id="bfz-vr-AB2"/>
                     </connections>
                 </searchBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="cButton" customModule="SearchDemo" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="CButton" customModule="SearchDemo" customModuleProvider="target">
                     <rect key="frame" x="345" y="6" width="30" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="JeH-39-PgY"/>
