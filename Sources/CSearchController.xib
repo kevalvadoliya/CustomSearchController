@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CSearchController" customModule="SearchDemo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CSearchController" customModule="CustomSearchController">
             <connections>
                 <outlet property="addButtonWidthConstraint" destination="KpZ-I9-z7C" id="o27-Ao-ciI"/>
                 <outlet property="cButton" destination="3Bj-LH-3ie" id="Vui-CT-jMA"/>
@@ -33,7 +33,7 @@
                         <outlet property="delegate" destination="-1" id="bfz-vr-AB2"/>
                     </connections>
                 </searchBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="CButton" customModule="SearchDemo" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="CButton" customModule="CustomSearchController">
                     <rect key="frame" x="345" y="6" width="30" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="JeH-39-PgY"/>
