@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     func loadViewFromNib(nibName: String? = nil) -> UIView {
         let identifier: String = nibName ?? String(describing: type(of: self))

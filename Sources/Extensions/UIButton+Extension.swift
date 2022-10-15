@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
 
     func setDynamicFontSize() {
         NotificationCenter.default.addObserver(

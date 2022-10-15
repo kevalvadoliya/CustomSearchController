@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc protocol SearchBarProtocol: AnyObject {
+@objc public protocol SearchBarProtocol: AnyObject {
 
     @objc optional func searchButtonClicked(_ searchBar: UISearchBar)
 
