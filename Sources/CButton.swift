@@ -54,7 +54,7 @@ public class CButton: UIButton {
         }
     }
     
-    @IBInspectable var enabledBackgroundColor: UIColor = .blue {
+    @IBInspectable var enabledBackgroundColor: UIColor = .systemBlue {
         didSet {
             backgroundColor = enabledBackgroundColor
         }

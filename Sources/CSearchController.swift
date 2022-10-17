@@ -9,11 +9,11 @@ import UIKit
 
 public class CSearchController: UIView {
 
-    @IBOutlet weak var cSearchBar: CSearchBar!
-    @IBOutlet weak var cButton: CButton!
-    @IBOutlet weak var delegate: SearchBarProtocol?
+    @IBOutlet public weak var cSearchBar: CSearchBar!
+    @IBOutlet public weak var cButton: CButton!
+    @IBOutlet public weak var delegate: SearchBarProtocol?
     private var contentView: UIView!
-    var addAction: ((Any) -> Void)?
+    public var addAction: ((Any) -> Void)?
     
     @IBOutlet private var searchBarWidthConstraint: NSLayoutConstraint!
     @IBOutlet private var addButtonWidthConstraint: NSLayoutConstraint!
@@ -140,11 +140,11 @@ public class CSearchController: UIView {
         }
     }
     
-    func isContentHidden() -> Bool {
+    public func isContentHidden() -> Bool {
         return cSearchBar.isHidden && cButton.isHidden
     }
     
-    func isAddButtonHidden() -> Bool {
+    public func isAddButtonHidden() -> Bool {
         return cButton.isHidden
     }
     

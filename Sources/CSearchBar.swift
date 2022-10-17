@@ -61,11 +61,11 @@ public class CSearchBar: UISearchBar {
         }
     }
     
-    func isSearchBarHidden() -> Bool {
+    public func isSearchBarHidden() -> Bool {
         return isHidden
     }
     
-    func getSearchedText() -> String {
+    public func getSearchedText() -> String {
         return text ?? String()
     }
     
