@@ -12,11 +12,11 @@ public class CSearchController: UIView {
     @IBOutlet public weak var cSearchBar: CSearchBar!
     @IBOutlet public weak var cButton: CButton!
     @IBOutlet public weak var delegate: SearchBarProtocol?
-    private var contentView: UIView!
-    public var addAction: ((Any) -> Void)?
-    
     @IBOutlet private var searchBarWidthConstraint: NSLayoutConstraint!
     @IBOutlet private var addButtonWidthConstraint: NSLayoutConstraint!
+    
+    private var contentView: UIView!
+    public var addAction: ((Any) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
