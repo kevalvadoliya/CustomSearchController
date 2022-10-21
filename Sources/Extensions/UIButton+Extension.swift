@@ -1,13 +1,13 @@
 //
 //  UIButton+Extension.swift
-//  SearchDemo
+//  CustomSearchController
 //
 //  Created by Keval Vadoliya on 11/10/22.
 //
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
 
     func setDynamicFontSize() {
         NotificationCenter.default.addObserver(

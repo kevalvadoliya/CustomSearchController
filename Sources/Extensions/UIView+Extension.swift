@@ -1,13 +1,13 @@
 //
 //  UIView+Extension.swift
-//  SearchDemo
+//  CustomSearchController
 //
 //  Created by Keval Vadoliya on 11/10/22.
 //
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     func loadViewFromNib(nibName: String? = nil) -> UIView {
         let identifier: String = nibName ?? String(describing: type(of: self))

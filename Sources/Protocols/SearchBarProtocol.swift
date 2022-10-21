@@ -1,14 +1,13 @@
 //
 //  SearchBarProtocol.swift
-//  Helios
+//  CustomSearchController
 //
-//  Created by kiprosh-xi on 25/09/19.
-//  Copyright © 2019 Kiprosh. All rights reserved.
+//  Created by Keval Vadoliya on 14/10/22.
 //
 
 import UIKit
 
-@objc protocol SearchBarProtocol: AnyObject {
+@objc public protocol SearchBarProtocol: AnyObject {
 
     @objc optional func searchButtonClicked(_ searchBar: UISearchBar)
 
@@ -16,14 +15,4 @@ import UIKit
     
     @objc optional func textDidChange(_ searchBar: UISearchBar, searchText: String)
 
-}
-
-extension SearchBarProtocol {
-    
-    func searchButtonClicked(_ searchBar: UISearchBar) { }
-    
-    func cancelButtonClicked(_ searchBar: UISearchBar) { }
-    
-    func textDidChange(_ searchBar: UISearchBar, searchText: String) { }
-    
 }

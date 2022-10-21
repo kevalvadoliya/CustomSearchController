@@ -4,16 +4,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSearchController" customModule="SearchDemo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CSearchController" customModule="CustomSearchController">
             <connections>
-                <outlet property="addButton" destination="3Bj-LH-3ie" id="Vui-CT-jMA"/>
                 <outlet property="addButtonWidthConstraint" destination="KpZ-I9-z7C" id="o27-Ao-ciI"/>
-                <outlet property="searchBar" destination="ePw-VJ-Mkg" id="Wdo-qB-JGt"/>
+                <outlet property="cButton" destination="3Bj-LH-3ie" id="Vui-CT-jMA"/>
+                <outlet property="cSearchBar" destination="ePw-VJ-Mkg" id="Wdo-qB-JGt"/>
                 <outlet property="searchBarWidthConstraint" destination="vdr-e6-0h9" id="f6Q-Tp-7CV"/>
             </connections>
         </placeholder>
@@ -22,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePw-VJ-Mkg">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePw-VJ-Mkg" customClass="CSearchBar" customModule="CustomSearchController">
                     <rect key="frame" x="0.0" y="0.0" width="345" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="WVv-Xa-3Zd"/>
@@ -30,27 +29,16 @@
                     </constraints>
                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="bfz-vr-AB2"/>
+                        <outlet property="delegate" destination="-1" id="545-WL-lzZ"/>
                     </connections>
                 </searchBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="RoundedButton" customModule="SearchDemo" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-LH-3ie" customClass="CButton" customModule="CustomSearchController">
                     <rect key="frame" x="345" y="6" width="30" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="JeH-39-PgY"/>
                         <constraint firstAttribute="width" constant="30" id="KpZ-I9-z7C"/>
                     </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="enabledBackgroundColor">
-                            <color key="value" name="AccentColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
-                            <color key="value" systemColor="systemGray4Color"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="buttonAction:" destination="-1" eventType="touchUpInside" id="h4A-Vf-r0Q"/>
                     </connections>
@@ -70,12 +58,4 @@
             <point key="canvasLocation" x="-151.19999999999999" y="-116.04197901049476"/>
         </view>
     </objects>
-    <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

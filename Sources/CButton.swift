@@ -1,13 +1,13 @@
 //
-//  RoundedButton.swift
-//  SearchDemo
+//  cButton.swift
+//  CustomSearchController
 //
 //  Created by Keval Vadoliya on 11/10/22.
 //
 
 import UIKit
 
-class RoundedButton: UIButton {
+public class CButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,6 +17,29 @@ class RoundedButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setButtonUI()
+    }
+    
+    public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setButtonUI()
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        setButtonUI()
+    }
+    
+    private func setButtonUI() {
+        titleLabel?.font = titleFont
+        titleLabel?.textAlignment = titleAlignment
+        titleLabel?.adjustsFontForContentSizeCategory = true
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+        setTitleColor(titleColor, for: .normal)
+        backgroundColor = isEnabled ? enabledBackgroundColor : disabledBackgroundColor
+        setDynamicFontSize()
     }
     
     override open var isEnabled: Bool {
@@ -31,7 +54,7 @@ class RoundedButton: UIButton {
         }
     }
     
-    @IBInspectable var enabledBackgroundColor: UIColor = .blue {
+    @IBInspectable var enabledBackgroundColor: UIColor = .systemBlue {
         didSet {
             backgroundColor = enabledBackgroundColor
         }
@@ -71,29 +94,6 @@ class RoundedButton: UIButton {
         didSet {
             titleLabel?.textAlignment = titleAlignment
         }
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setButtonUI()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setButtonUI()
-    }
-    
-    private func setButtonUI() {
-        titleLabel?.font = titleFont
-        titleLabel?.textAlignment = titleAlignment
-        titleLabel?.adjustsFontForContentSizeCategory = true
-        layer.borderWidth = borderWidth
-        layer.borderColor = borderColor.cgColor
-        layer.cornerRadius = cornerRadius
-        layer.masksToBounds = true
-        setTitleColor(titleColor, for: .normal)
-        backgroundColor = isEnabled ? enabledBackgroundColor : disabledBackgroundColor
-        setDynamicFontSize()
     }
     
 }
