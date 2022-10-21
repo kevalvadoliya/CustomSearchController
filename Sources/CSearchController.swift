@@ -161,7 +161,7 @@ public class CSearchController: UIView {
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
         cSearchBar.isSearched = false
-        delegate?.cancelButtonClicked(cSearchBar)
+        delegate?.cancelButtonClicked?(cSearchBar)
     }
     
 }
@@ -177,14 +177,14 @@ extension CSearchController: UISearchBarDelegate {
         cSearchBar.isSearched = true
         updateUIConstraints()
         searchBar.endEditing(true)
-        delegate?.searchButtonClicked(searchBar)
+        delegate?.searchButtonClicked?(searchBar)
         enableCancelButton()
     }
     
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if isTextDidChangeActive {
             cSearchBar.isSearched = true
-            delegate?.textDidChange(searchBar, searchText: searchText)
+            delegate?.textDidChange?(searchBar, searchText: searchText)
         }
     }
     
@@ -202,7 +202,7 @@ extension CSearchController: UISearchBarDelegate {
             return
         }
         cSearchBar.isSearched = false
-        delegate?.cancelButtonClicked(cSearchBar)
+        delegate?.cancelButtonClicked?(cSearchBar)
     }
     
     public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

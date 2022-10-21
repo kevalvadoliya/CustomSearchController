@@ -16,13 +16,3 @@ import UIKit
     @objc optional func textDidChange(_ searchBar: UISearchBar, searchText: String)
 
 }
-
-extension SearchBarProtocol {
-    
-    func searchButtonClicked(_ searchBar: UISearchBar) { }
-    
-    func cancelButtonClicked(_ searchBar: UISearchBar) { }
-    
-    func textDidChange(_ searchBar: UISearchBar, searchText: String) { }
-    
-}
