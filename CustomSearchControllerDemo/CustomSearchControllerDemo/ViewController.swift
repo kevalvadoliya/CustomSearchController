@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredMovies.count
@@ -62,6 +62,17 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = filteredMovies[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let item = filteredMovies[indexPath.row]
+            filteredMovies.remove(at: indexPath.row)
+            if let index = movies.firstIndex(where: {$0 == item}) {
+                movies.remove(at: index)
+            }
+            tableView.reloadData()
+        }
     }
     
 }
