@@ -84,7 +84,13 @@ public class CSearchController: UIView {
     }
     
     private func updatePlaceHolder() {
-        cSearchBar.placeholder = cSearchBar.isSearchBarActive || !shouldShowButton ? "Search" : String()
+        cSearchBar.placeholder = cSearchBar.isSearchBarActive || !shouldShowButton ? searchBarPlaceHolder : String()
+    }
+    
+    @IBInspectable dynamic open var searchBarPlaceHolder: String = "Search" {
+        didSet {
+            updatePlaceHolder()
+        }
     }
     
     private func enableCancelButton() {
