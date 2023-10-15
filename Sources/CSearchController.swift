@@ -96,7 +96,13 @@ public class CSearchController: UIView {
     private func enableCancelButton() {
         if let cancelButton = cSearchBar.value(forKey: "cancelButton") as? UIButton {
             cancelButton.isEnabled = true
-            cancelButton.setTitle("Cancel", for: .normal)
+            cancelButton.setTitle(cancelButtonTitle, for: .normal)
+        }
+    }
+    
+    @IBInspectable dynamic open var cancelButtonTitle: String = "Cancel" {
+        didSet {
+            enableCancelButton()
         }
     }
     
